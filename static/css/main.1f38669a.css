@@ -1,0 +1,2 @@
+*{box-sizing:border-box;outline:none}body{background-color:#508395}#content{display:flex;flex-direction:column;margin:auto;max-width:60%}#editor-section{margin:auto;width:80%}.bar{background-color:#3490b2;margin-top:10px}.bar,.window{border-radius:3px;padding:5px}.window{min-height:40vh}#preview,.window{max-width:100%;min-width:100%}#preview{background-color:#fff;margin:auto}
+/*# sourceMappingURL=main.1f38669a.css.map*/
