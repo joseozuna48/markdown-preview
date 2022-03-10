@@ -42,4 +42,40 @@ body{
   max-width:100%;
   background-color:white;
   margin:auto;
+  font-family: 'Roboto', sans-serif;
 }
+
+/* markdown styles */
+img{
+  width: 80%;
+  height: auto;
+}
+
+h1,h2{
+  border-bottom: 3px outset black;
+  border-radius: 2px;
+}
+
+pre{
+  background-color: rgb(218, 214, 214,1);
+  border-radius: 5px;
+  margin: 5px;
+  padding: 5px;
+  /* font-weight: bold; */
+}
+
+table,td, th {  
+  border-collapse: collapse;
+  border: 2px solid rgb(32, 32, 32);
+  text-align: left;
+  padding:5px;
+}
+
+blockquote{
+  border-left: 3px solid black;
+  padding-left: 5px;
+}
+
+
+
+/* end markdown styles */
