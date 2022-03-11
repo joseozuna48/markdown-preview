@@ -13,12 +13,13 @@ body{
   display:flex;
   flex-direction:column;
   margin:auto;
-  max-width:60%;
+  max-width:90%;
 }
 
 #editor-section{
   width:80%;
   margin:auto;
+  max-width: 600px;
 }
 
 .bar{
@@ -39,7 +40,7 @@ body{
 
 #preview{
   min-width:100%;
-  max-width:100%;
+  max-width:50%;
   background-color:white;
   margin:auto;
   font-family: 'Roboto', sans-serif;
@@ -61,8 +62,9 @@ pre{
   border-radius: 5px;
   margin: 5px;
   padding: 5px;
-  /* font-weight: bold; */
+  overflow: auto;
 }
+
 
 table,td, th {  
   border-collapse: collapse;
