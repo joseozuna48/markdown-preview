@@ -17,7 +17,7 @@ body{
 }
 
 #editor-section{
-  width:80%;
+  width:75%;
   margin:auto;
   max-width: 600px;
 }
@@ -38,9 +38,15 @@ body{
   padding:5px;
 }
 
+#preview-section{
+  max-width: 80%;
+  /* min-width: 100%; */
+  margin: auto;
+}
+
 #preview{
-  min-width:100%;
-  max-width:50%;
+  /* min-width:100%; */
+  /* max-width:10%; */
   background-color:white;
   margin:auto;
   font-family: 'Roboto', sans-serif;
