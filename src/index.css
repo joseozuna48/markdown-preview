@@ -1,6 +1,4 @@
 *{
-  /* margin:0px; */
-  /* padding:0px; */
   box-sizing:border-box;
   outline:none;
 }
@@ -21,44 +19,51 @@ body{
   margin:auto;
   max-width: 600px;
   margin-top: 10px;
-  box-shadow: 0px -5px 5px 3px rgb(0,0,0,0.4), 0px 5px 5px 3px rgb(0,0,0,0.4);
+  box-shadow: 0px -5px 10px 3px rgb(0,0,0,0.4), 0px 5px 10px 3px rgb(0,0,0,0.4);
 }
 
 .bar{
   background-color:	rgb(52, 144, 178,0);
   border-radius:3px;
   padding:5px; 
+  position: relative;
+
 } 
+
+.fas{
+  position:absolute;
+  right:10px;
+  cursor: pointer;
+}
 
 
 .window{
   min-height:40vh;
   min-width:100%;
   max-width:100%;
-  border-radius:3px;
   padding:5px;
 }
 
 #preview-section{
   max-width: 80%;
-  /* min-width: 100%; */
+  min-width: 100%;
   margin: auto;
   margin-top: 30px;
   box-shadow: 0px -5px 5px 3px rgb(0,0,0,0.4), 0px 5px 5px 3px rgb(0,0,0,0.4);
 }
 
 #preview{
-  /* min-width:100%; */
-  /* max-width:10%; */
   background-color:white;
   margin:auto;
   font-family: 'Roboto', sans-serif;
+  border-radius: 5px
 }
 
 /* markdown styles */
 img{
   width: 80%;
   height: auto;
+  max-height: 200px;
 }
 
 h1,h2{

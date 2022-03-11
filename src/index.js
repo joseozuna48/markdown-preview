@@ -13,11 +13,19 @@ class Editor extends React.Component{
   handleChange(event){
     this.props.editorChange(event.target.value);
   }
+
+  
   
   render(){
+    let button;
+    if(this.props.showOther){
+      button = <i class="fas fa-expand-arrows-alt"></i>;
+    }else{
+      button = <i class="fas fa-compress-arrows-alt"></i>;
+    }
     return (
       <div id="editor-section">
-        <div class="bar"><i class="fab fa-free-code-camp"></i>  Editor</div>
+        <div class="bar"><i class="fab fa-free-code-camp"></i>  Editor {button}</div>
           <textarea name="adsfas" value={this.props.text} id="editor" class="window" onChange={this.handleChange}/>
         </div>      
     );
@@ -28,9 +36,17 @@ function Preview(props){
   
   const markDown = marked.parse(props.text);
   console.log(markDown);
+
+  let button;
+  if(props.showOther){
+    button = <i class="fas fa-expand-arrows-alt"></i>;
+  }else{
+    button = <i class="fas fa-compress-arrows-alt"></i>;
+  }
+
   return(
     <div id="preview-section">
-      <div class="bar"><i class="fab fa-free-code-camp"></i>  Preview</div>
+      <div class="bar"><i class="fab fa-free-code-camp"></i>  Preview {button}</div>
       <div id="preview" class="window">{parse(markDown)}</div>       
       </div>
   );
@@ -40,20 +56,37 @@ class App extends React.Component{
   constructor(props){
     super(props);
     this.state={
-      editor: placeholder,
+      editor: placeholder, 
+      showEditor: true,
+      showPreview: true,
     };
     this.handleEditorChange = this.handleEditorChange.bind(this);
+    this.handleMaximize = this.handleMaximize.bind(this);
   }
   
   handleEditorChange(text){
     this.setState({editor:text});
   }
+
+  handleMaximize(window){
+    this.setState({window: !this.state.window});
+  }
     
   render(){
     return(
       <div id="content">
-      <Editor text={this.state.editor} editorChange={this.handleEditorChange}/>
-      <Preview text={this.state.editor}/>
+      {this.state.showEditor &&
+       <Editor text={this.state.editor}
+        editorChange={this.handleEditorChange}
+          showOther = {this.state.showPreview}
+        />  
+       }
+
+      {this.state.showPreview && 
+      <Preview text={this.state.editor}
+        showOther = {this.state.showEditor}
+        handleMaximize = {this.handleMaximize}
+      /> }
       </div>
     );
     
