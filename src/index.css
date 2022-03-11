@@ -20,11 +20,12 @@ body{
   width:75%;
   margin:auto;
   max-width: 600px;
+  margin-top: 10px;
+  box-shadow: 0px -5px 5px 3px rgb(0,0,0,0.4), 0px 5px 5px 3px rgb(0,0,0,0.4);
 }
 
 .bar{
-  margin-top:10px;
-  background-color:#3490b2;
+  background-color:	rgb(52, 144, 178,0);
   border-radius:3px;
   padding:5px; 
 } 
@@ -42,6 +43,8 @@ body{
   max-width: 80%;
   /* min-width: 100%; */
   margin: auto;
+  margin-top: 30px;
+  box-shadow: 0px -5px 5px 3px rgb(0,0,0,0.4), 0px 5px 5px 3px rgb(0,0,0,0.4);
 }
 
 #preview{
