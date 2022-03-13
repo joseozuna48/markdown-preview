@@ -15,18 +15,21 @@ class Editor extends React.Component{
   }
 
   
-  
   render(){
     let button;
+    let minHeight = "40vh";
     if(this.props.showOther){
-      button = <i class="fas fa-expand-arrows-alt"></i>;
+      minHeight = "40vh";
+      button = <i class="fas fa-expand-arrows-alt" onClick={this.props.handleMaximize}></i>;
     }else{
-      button = <i class="fas fa-compress-arrows-alt"></i>;
+      minHeight = "100vh";
+      button = <i class="fas fa-compress-arrows-alt" onClick={this.props.handleMaximize}></i>;
     }
     return (
       <div id="editor-section">
         <div class="bar"><i class="fab fa-free-code-camp"></i>  Editor {button}</div>
-          <textarea name="adsfas" value={this.props.text} id="editor" class="window" onChange={this.handleChange}/>
+          <textarea name="adsfas" value={this.props.text} id="editor"
+          style={{minHeight:minHeight}} class="window" onChange={this.handleChange}/>
         </div>      
     );
   }    
@@ -35,19 +38,22 @@ class Editor extends React.Component{
 function Preview(props){
   
   const markDown = marked.parse(props.text);
-  console.log(markDown);
+  // console.log(markDown);
 
   let button;
+  let minHeight = "40vh";
   if(props.showOther){
-    button = <i class="fas fa-expand-arrows-alt"></i>;
+    minHeight = "40vh";
+    button = <i class="fas fa-expand-arrows-alt" onClick={props.handleMaximize}></i>;
   }else{
-    button = <i class="fas fa-compress-arrows-alt"></i>;
+    minHeight = "100vh";
+    button = <i class="fas fa-compress-arrows-alt" onClick={props.handleMaximize}></i>;
   }
 
   return(
     <div id="preview-section">
       <div class="bar"><i class="fab fa-free-code-camp"></i>  Preview {button}</div>
-      <div id="preview" class="window">{parse(markDown)}</div>       
+      <div id="preview" style={{minHeight:minHeight}} class="window">{parse(markDown)}</div>       
       </div>
   );
 }
@@ -61,15 +67,21 @@ class App extends React.Component{
       showPreview: true,
     };
     this.handleEditorChange = this.handleEditorChange.bind(this);
-    this.handleMaximize = this.handleMaximize.bind(this);
+    this.handleEditMaximize = this.handleEditMaximize.bind(this);
+    this.handlePreviewMaximize = this.handlePreviewMaximize.bind(this);
   }
   
   handleEditorChange(text){
     this.setState({editor:text});
   }
 
-  handleMaximize(window){
-    this.setState({window: !this.state.window});
+  handleEditMaximize(e){
+    this.setState({showPreview: !this.state.showPreview});
+  
+  }
+
+  handlePreviewMaximize(e){
+    this.setState({showEditor: !this.state.showEditor});
   }
     
   render(){
@@ -78,6 +90,7 @@ class App extends React.Component{
       {this.state.showEditor &&
        <Editor text={this.state.editor}
         editorChange={this.handleEditorChange}
+          handleMaximize = {this.handleEditMaximize}
           showOther = {this.state.showPreview}
         />  
        }
@@ -85,7 +98,7 @@ class App extends React.Component{
       {this.state.showPreview && 
       <Preview text={this.state.editor}
         showOther = {this.state.showEditor}
-        handleMaximize = {this.handleMaximize}
+        handleMaximize = {this.handlePreviewMaximize}
       /> }
       </div>
     );
